@@ -27,14 +27,29 @@ public class LoginController {
 	}
 
 	private void loginRouter(PersonDto personDto) {
-	 if(personDto.getRole().equals("administrador")) {
-		adminController.session();
-	 }if (personDto.getRole().equals("medico")) {
-			veterinaryController.session();
-		}else if(personDto.getRole().equals("vendedor")) {
-			veterinaryController.session();
-	}
+
+		String option = personDto.getRole();
+		switch (option) {
+		case "Administrador": {
+			adminController.session();
+			break;
 		}
+		case "Medico": {
+			veterinaryController.session();
+			break;
+		}
+		case "Vendedor": {
+			
+			break;
+		}
+		default: {
+			System.out.println("ingrese una opcion valida");
+			break;
+		}
+
+		}
+
+	}
 }
 
 

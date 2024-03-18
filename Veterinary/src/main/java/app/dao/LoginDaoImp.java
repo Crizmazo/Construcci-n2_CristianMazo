@@ -20,10 +20,10 @@ public class LoginDaoImp implements LoginDao {
 		preparedStatement.setString(1, personDto.getUserName());
 		ResultSet resulSet = preparedStatement.executeQuery();
 		if (resulSet.next()) {
-			long id = resulSet.getLong("ID");
 			
-			String userName = resulSet.getString("USERNAME");
+			long id = resulSet.getLong("ID");
 			String role = resulSet.getString("ROLE");
+			String userName = resulSet.getString("USERNAME");
 			resulSet.close();
 			preparedStatement.close();
 			return new SessionDto(id, userName, role);
